@@ -1,0 +1,54 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{  \setbeamertemplate{navigation symbols}{} } 
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{hyperref}
+
+\usepackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
+\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \setbox0=\hbox{#3}% Put <stuff> in a box
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+  }%
+}% All of this is for superimposing text above images
+
+\usepackage{contour} % for contour around the letters
+\contourlength{1.5pt} % contour thickness
+
+\newcommand{\drawo}{\includegraphics[width=0.25\textwidth]{o}}
+\newcommand{\drawx}{\includegraphics[width=0.25\textwidth]{x}}
+\newcommand{\drawb}{\includegraphics[width=0.25\textwidth]{b}}
+\newcommand{\drawbl}[1]{\hyperlink{#1}{\includegraphics[width=0.243\textwidth]{b}}}
+
+\newcommand{\lose}{
+\placetextbox{0.5}{0.55}{\hyperlink{start}{\textcolor{red!60}{\contour{black}{\Huge \bfseries You lose}}}}
+\placetextbox{0.5}{0.468}{\hyperlink{start}{\textcolor{red!60}{\contour{black}{\Huge \bfseries Click to try again}}}}}
+\newcommand{\draw}{
+\placetextbox{0.5}{0.55}{\hyperlink{start}{\textcolor{blue!60}{\contour{black}{\Huge \bfseries Draw}}}}
+\placetextbox{0.5}{0.468}{\hyperlink{start}{\textcolor{blue!60}{\contour{black}{\Huge \bfseries Click to try again}}}}}
+
+\begin{document}
+
+\begin{frame}{Let's play some Tic-Tac-Toe!}
+\label{start}
+In this version, X always starts. Which symbol do you want to play?
+
+\begin{figure}
+\centering
+\hyperlink{_________}{\includegraphics[width=0.3\textwidth]{x}}
+\hyperlink{x________}{\includegraphics[width=0.3\textwidth]{o}}
+
+\vfill
+{\tiny \hfill \copyright J\'er\'emie Gillet 2016}
+\end{figure}
+\end{frame}
+
+\setbeamertemplate{background}{\includegraphics{bckgnd}} 
+
+\include{frames}
+
+\end{document}
+
