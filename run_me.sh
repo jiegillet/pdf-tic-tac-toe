@@ -1,0 +1,11 @@
+cd LaTeX/  
+pdflatex x.tex 
+pdflatex b.tex
+pdflatex o.tex
+pdflatex grid.tex
+pdflatex bckgnd.tex 
+cd ..
+python2 writing_frames.py 
+cd LaTeX/
+pdflatex PDF_tic_tac_toe.tex 
+pdflatex PDF_tic_tac_toe.tex 
